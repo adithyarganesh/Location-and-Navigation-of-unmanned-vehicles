@@ -12,129 +12,129 @@ from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
 
 
-# In[3]:
+# # In[3]:
 
-data = pd.read_csv('900.340.txt',header = None)
-data.head()
-
-
-# In[4]:
-
-data[0] = data[0]/340*330
+# data = pd.read_csv('900.340.txt',header = None)
+# data.head()
 
 
-# In[7]:
+# # In[4]:
 
-#df.columns = [str(x) for x in df.columns]
-data.head()
-
-
-# In[8]:
-
-data.to_csv('900.txt', index=False)
+# data[0] = data[0]/340*330
 
 
-# In[9]:
+# # In[7]:
 
-full_data = data
-full_data.drop(full_data.index, inplace=True)
-
-
-# In[ ]:
+# #df.columns = [str(x) for x in df.columns]
+# data.head()
 
 
+# # In[8]:
+
+# data.to_csv('900.txt', index=False)
 
 
-# In[10]:
+# # In[9]:
 
-full_data.columns = [str(x) for x in full_data.columns]
-full_data.drop(['2','3'],axis=1)
+# full_data = data
+# full_data.drop(full_data.index, inplace=True)
 
 
-# In[ ]:
+# # In[ ]:
 
 
 
 
-# In[11]:
+# # In[10]:
 
-data_distance = []
-i = 0
-while i < 1500:
-    i = i+150
-    data_distance.append(i)
+# full_data.columns = [str(x) for x in full_data.columns]
+# full_data.drop(['2','3'],axis=1)
 
 
-# In[12]:
-
-data_distance
+# # In[ ]:
 
 
-# In[14]:
 
-for i in data_distance:
-    file_name = str(i) + ".txt"
-    df = pd.read_csv(file_name, header = None)
-    df_new = df
-    df_new[0] = df[0].round(2)
-    df_new[1] = i
-    df_new.columns = [str(x) for x in df_new.columns]
-    df_new = df_new.drop(['2','3'],axis=1)
-    df_new.drop(df.index[:50], inplace=True)
-    df_new = df_new.drop_duplicates()
-    frames = [df_new, full_data]
-    full_data = pd.concat(frames)
-    full_data = full_data.drop_duplicates()
+
+# # In[11]:
+
+# data_distance = []
+# i = 0
+# while i < 1500:
+#     i = i+150
+#     data_distance.append(i)
+
+
+# # In[12]:
+
+# data_distance
+
+
+# # In[14]:
+
+# for i in data_distance:
+#     file_name = str(i) + ".txt"
+#     df = pd.read_csv(file_name, header = None)
+#     df_new = df
+#     df_new[0] = df[0].round(2)
+#     df_new[1] = i
+#     df_new.columns = [str(x) for x in df_new.columns]
+#     df_new = df_new.drop(['2','3'],axis=1)
+#     df_new.drop(df.index[:50], inplace=True)
+#     df_new = df_new.drop_duplicates()
+#     frames = [df_new, full_data]
+#     full_data = pd.concat(frames)
+#     full_data = full_data.drop_duplicates()
     
 
 
-# In[ ]:
+# # In[ ]:
 
 
 
 
-# In[15]:
+# # In[15]:
 
-full_data = full_data.drop(['2','3'],axis=1)
-full_data.info()
-
-
-# In[16]:
-
-full_data.head()
+# full_data = full_data.drop(['2','3'],axis=1)
+# full_data.info()
 
 
-# In[368]:
+# # In[16]:
 
-full_data.to_csv('distance_dataset.txt', index = False)
-
-
-# In[ ]:
+# full_data.head()
 
 
+# # In[368]:
+
+# full_data.to_csv('distance_dataset.txt', index = False)
 
 
-# In[ ]:
+# # In[ ]:
 
 
 
 
-# In[ ]:
+# # In[ ]:
 
 
 
 
-# In[ ]:
+# # In[ ]:
 
 
 
 
-# In[ ]:
+# # In[ ]:
 
 
 
 
-# In[ ]:
+# # In[ ]:
+
+
+
+
+# # In[ ]:
 
 
 
@@ -151,12 +151,12 @@ dataset.drop(dataset.index[:1], inplace=True)
 
 # In[19]:
 
-dataset.info()
+# dataset.info()
 
 
-# In[20]:
+# # In[20]:
 
-dataset.head()
+# dataset.head()
 
 
 # In[21]:
@@ -244,17 +244,17 @@ import pickle
 # In[34]:
 
 
-filename = 'finalized_model.sav'
-pickle.dump(linear, open(filename, 'wb'))
+# filename = 'finalized_model.sav'
+# pickle.dump(linear, open(filename, 'wb'))
  
-# some time later...
-result = loaded_model.score(X_test, y_test)
-print(result)
-# load the model from disk
+# # some time later...
+# result = loaded_model.score(X_test, y_test)
+# print(result)
+# # load the model from disk
 
-def prediction(value):
-    loaded_model = pickle.load(open(filename, 'rb'))
-    return loaded_model.predict(value)
+# def prediction(value):
+#     loaded_model = pickle.load(open(filename, 'rb'))
+#     return loaded_model.predict(value)
 
 
 # In[382]:
